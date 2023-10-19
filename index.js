@@ -2,8 +2,8 @@ const express = require("express");
 const PORT = 3000;
 const HOST = "0.0.0.0";
 const { MongoClient } = require("mongodb");
-const uri =
-	"mongodb://objective:objpwd@127.0.0.1:27017/?authSource=admin&readPreference=primary&directConnection=true&ssl=false";
+const config = require("./config/app.config.json");
+const uri = config.db.mongodb.connection.url;
 const client = new MongoClient(uri);
 const app = express();
 

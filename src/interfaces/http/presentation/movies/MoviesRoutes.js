@@ -1,9 +1,10 @@
 var express = require("express");
 var router = express.Router();
 var enumHttpCodes = require("../../../../domain/enum/httpStatusCodeEnum");
+const validator = require("express-joi-validation").createValidator({});
 
 // Create Movie
-router.post("/", function (req, res) {
+router.post("/", validator.query(querySchema), function (req, res) {
 	try {
 	} catch (error) {
 		res.status(enumHttpCodes.ERROR).send(
