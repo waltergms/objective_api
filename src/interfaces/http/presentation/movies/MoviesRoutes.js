@@ -1,96 +1,55 @@
-var express = require("express");
-var router = express.Router();
-var enumHttpCodes = require("../../../../domain/enum/httpStatusCodeEnum");
-const validator = require("express-joi-validation").createValidator({});
-
-// Create Movie
-router.post("/", validator.query(querySchema), function (req, res) {
-	try {
-	} catch (error) {
-		res.status(enumHttpCodes.ERROR).send(
-			`Não foi possível criar o filme. Err.: ${error.message}`
-		);
-	}
-});
-
-// Find Movie
-router.get("/:id", function (req, res) {
-	try {
-	} catch (error) {
-		res.status(enumHttpCodes.ERROR).send(
-			`Não foi possível criar o filme. Err.: ${error.message}`
-		);
-	}
-});
-
-// Full update Movie
-router.put("/:id", function (req, res) {
-	try {
-	} catch (error) {
-		res.status(enumHttpCodes.ERROR).send(
-			`Não foi possível criar o filme. Err.: ${error.message}`
-		);
-	}
-});
-
-// Partial update Movie
-router.patch("/:id", function (req, res) {
-	try {
-	} catch (error) {
-		res.status(enumHttpCodes.ERROR).send(
-			`Não foi possível criar o filme. Err.: ${error.message}`
-		);
-	}
-});
-
-// Delete Movie
-router.delete("/:id", function (req, res) {
-	try {
-	} catch (error) {
-		res.status(enumHttpCodes.ERROR).send(
-			`Não foi possível criar o filme. Err.: ${error.message}`
-		);
-	}
-});
-
-//all Listar filmes
-router.get("/all", function (req, res) {
-	try {
-	} catch (error) {
-		res.status(enumHttpCodes.ERROR).send(
-			`Não foi possível criar o filme. Err.: ${error.message}`
-		);
-	}
-});
-
-// book Reservar um filme
-router.patch("/book/:id", function (req, res) {
-	try {
-	} catch (error) {
-		res.status(enumHttpCodes.ERROR).send(
-			`Não foi possível criar o filme. Err.: ${error.message}`
-		);
-	}
-});
-
-//confirm Confirmar locação
-router.patch("/confirm/:id", function (req, res) {
-	try {
-	} catch (error) {
-		res.status(enumHttpCodes.ERROR).send(
-			`Não foi possível criar o filme. Err.: ${error.message}`
-		);
-	}
-});
-
-// return Retornar um filme
-router.patch("/return/:id", function (req, res) {
-	try {
-	} catch (error) {
-		res.status(enumHttpCodes.ERROR).send(
-			`Não foi possível criar o filme. Err.: ${error.message}`
-		);
-	}
-});
-
-module.exports = router;
+module.exports = ({ moviesController, moviesSchema }) => {
+	return [
+		{
+			method: "get",
+			path: "/movies",
+			validation: {},
+			handler: moviesController.findMovie,
+			tags: ["Movies"],
+		},
+		{
+			method: "get",
+			path: "/movies/:movieId",
+			validation: {},
+			handler: moviesController.findMovieById,
+			tags: ["Movies"],
+		},
+		{
+			method: "post",
+			path: "/movies",
+			validation: {
+				body: moviesSchema.paramsCreate,
+			},
+			handler: moviesController.createMovie,
+			tags: ["Movies"],
+		},
+		{
+			method: "put",
+			path: "/movies/:movieId",
+			validation: {
+				params: moviesSchema.paramsFindPatchUpdate,
+				body: moviesSchema.paramsCreate,
+			},
+			handler: moviesController.updateMovie,
+			tags: ["Movies"],
+		},
+		{
+			method: "patch",
+			path: "/movies/:movieId",
+			validation: {
+				params: moviesSchema.paramsFindPatchUpdate,
+			},
+			handler: moviesController.updatePartialMovie,
+			tags: ["Movies"],
+		},
+		{
+			method: "delete",
+			path: "/movies/:movieId",
+			validation: {
+				params: moviesSchema.paramsFindPatchUpdate,
+			},
+			handler: moviesController.deleteMovie,
+			tags: ["Movies"],
+		},
+	];
+};

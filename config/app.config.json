@@ -1,15 +1,55 @@
 {
+	"appCode": "1",
 	"web": {
 		"port": 3000
 	},
 	"db": {
+		"username": "objective",
+		"password": "objpwd",
+		"database": "objective-api",
+		"servers": ["127.0.0.1:27017"],
+		"dialect": "mongodb",
+		"logging": "",
+		"options": {
+			"authSource": "admin",
+			"replicaSet": ""
+		},
 		"mongodb": {
 			"connection": {
-				"url": "mongodb://objective:objpwd@127.0.0.1:27017/?authSource=admin&readPreference=primary&directConnection=true&ssl=false"
+				"url": "mongodb://objective:objpwd@127.0.0.1:27017/?authSource=admin&readPreference=primary&directConnection=true&ssl=false",
+				"database_name": "objective-api"
+			}
+		},
+		"timeoutOptions": {
+			"findTimeout": 600000,
+			"createTimeout": 600000
+		},
+		"collections": {
+			"movies": {
+				"name": "movies",
+				"version": "1.0.0"
+			},
+			"customers": {
+				"name": "customers",
+				"version": "1.0.0"
+			},
+			"rents": {
+				"name": "rents",
+				"version": "1.0.0"
 			}
 		}
 	},
 	"hateoas": {
-		"domain": "http://localhost"
+		"domain": "https://localhost:3000"
+	},
+	"info": {
+		"product": "Objective API",
+		"serviceName": "objective-api-service",
+		"serviceLabel": "The fastest API in the world",
+		"version": "v1",
+		"servicePropertiesPath": "properties",
+		"serviceInfraPath": "infra",
+		"appPort": "3000",
+		"architectureVersion": "1.0"
 	}
 }

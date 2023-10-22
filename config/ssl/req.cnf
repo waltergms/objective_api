@@ -1,0 +1,19 @@
+[req]
+distinguished_name = api_objective
+x509_extensions = v3_req
+prompt = no
+[api_objective]
+C = BR
+ST = MG
+L = BH
+O = Objective
+OU = TI
+CN = www.localhost.com
+[v3_req]
+keyUsage = digitalSignature
+extendedKeyUsage = serverAuth
+subjectAltName = @alt_names
+[alt_names]
+DNS.1 = www.localhost.com
+DNS.2 = localhost.com
+DNS.3 = localhost

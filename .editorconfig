@@ -5,6 +5,7 @@ charset = utf-8
 trim_trailing_whitespace = true
 indent_style = tab
 indent_size = 4
+word_wrap = 120
 
 [*.{json,yml}]
 indent_size = 4
