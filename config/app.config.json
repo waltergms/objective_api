@@ -7,7 +7,7 @@
 		"username": "objective",
 		"password": "objpwd",
 		"database": "objective-api",
-		"servers": ["127.0.0.1:27017"],
+		"servers": ["db:27017"],
 		"dialect": "mongodb",
 		"logging": "",
 		"options": {
@@ -16,7 +16,7 @@
 		},
 		"mongodb": {
 			"connection": {
-				"url": "mongodb://objective:objpwd@127.0.0.1:27017/?authSource=admin&readPreference=primary&directConnection=true&ssl=false",
+				"url": "mongodb://objective:objpwd@db:27017/?authSource=admin&readPreference=primary&directConnection=true&ssl=false",
 				"database_name": "objective-api"
 			}
 		},
@@ -27,10 +27,6 @@
 		"collections": {
 			"movies": {
 				"name": "movies",
-				"version": "1.0.0"
-			},
-			"customers": {
-				"name": "customers",
 				"version": "1.0.0"
 			},
 			"rents": {

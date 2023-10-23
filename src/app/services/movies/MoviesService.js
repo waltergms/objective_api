@@ -29,25 +29,13 @@ module.exports = ({ moviesRepository, logger, apiHelper }) => ({
 				message: "Movie get",
 				caller: "MovieService.getAll",
 			});
-
-			const checkReserveHour = new Date();
-			checkReserveHour.setHours(checkReserveHour.getHours() - 3);
-
-			const definedQuery = {
-				$or: [
-					{ status: MovieStatus.RETURNED },
-					{
-						status: MovieStatus.WAITING,
-						updated_at: { $lt: new Date(checkReserveHour) },
-					},
-				],
-			};
+			const checkReserveHour = apiHelper.getReservedHourLimit();
 			const queryPayload = apiHelper.mapperQueryParams(args);
-			queryPayload.query = Object.assign(
-				queryPayload.query,
-				definedQuery
+			const buildQuery = apiHelper.buildQuery(
+				queryPayload,
+				checkReserveHour
 			);
-			return await moviesRepository.getAll(queryPayload);
+			return await moviesRepository.getAll(buildQuery);
 		} catch (error) {
 			logger.log({
 				level: "error",

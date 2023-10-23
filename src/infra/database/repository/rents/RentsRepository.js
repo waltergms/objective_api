@@ -34,21 +34,11 @@ class RentsRepository extends BaseRepository {
 		return rents;
 	}
 
-	async getById(rent_id) {
-		const rent = await this.get({ rent_id });
-		return rent;
-	}
-
 	async updateRent(query, data) {
 		const updatedRent = await this.update(query, data, {
 			new: true,
 		});
 		return updatedRent;
-	}
-
-	async delete(rent_id) {
-		const deletedRent = await this.findByIdAndDelete(rent_id);
-		return deletedRent;
 	}
 }
 

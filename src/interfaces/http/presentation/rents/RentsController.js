@@ -17,52 +17,6 @@ module.exports = () => ({
 		return ctx.res.status(httpConstants.code.CREATED).json(response);
 	},
 
-	findRent: async (ctx) => {
-		const { getAllRentsOperation, rentsSerializer, httpConstants, logger } =
-			ctx.container.cradle;
-		logger.log({
-			level: "info",
-			message: "Rent reading",
-			caller: "RentsController",
-		});
-		const rentList = await getAllRentsOperation.execute(ctx.query);
-		if (rentList.total > 0) {
-			const { docs, total, limit, page, pages } = rentList;
-			const response = docs.map((data) =>
-				rentsSerializer.serialize(data)
-			);
-			const responseSerializer = {
-				rents: response,
-				total,
-				limit,
-				page,
-				pages,
-			};
-			return ctx.res
-				.status(httpConstants.code.OK)
-				.json(responseSerializer);
-		}
-		return ctx.res.status(httpConstants.code.NO_CONTENT);
-	},
-
-	findRentById: async (ctx) => {
-		const {
-			getByIdRentsOperation,
-			rentsSerializer,
-			httpConstants,
-			logger,
-		} = ctx.container.cradle;
-		logger.log({
-			level: "info",
-			message: "Rent reading",
-			caller: "RentsController",
-		});
-		const rentList = await getByIdRentsOperation.execute(
-			ctx.params?.rent_id
-		);
-		const response = rentsSerializer.serialize(rentList);
-		return ctx.res.status(httpConstants.code.OK).json(response);
-	},
 	updateReserveToRent: async (ctx) => {
 		const {
 			updateReserveToRentOperation,
@@ -116,15 +70,31 @@ module.exports = () => ({
 		}
 	},
 
-	deleteRent: async (ctx) => {
-		const { deleteRentsOperation, rentsSerializer, httpConstants, logger } =
+	findRent: async (ctx) => {
+		const { getAllRentsOperation, rentsSerializer, httpConstants, logger } =
 			ctx.container.cradle;
 		logger.log({
 			level: "info",
-			message: "Rent delete",
+			message: "Rent reading",
 			caller: "RentsController",
 		});
-		const rentList = await deleteRentsOperation.execute(ctx.body);
-		return ctx.res.status(httpConstants.code.NO_CONTENT).json(rentList);
+		const rentList = await getAllRentsOperation.execute(ctx.query);
+		if (rentList.total > 0) {
+			const { docs, total, limit, page, pages } = rentList;
+			const response = docs.map((data) =>
+				rentsSerializer.serialize(data)
+			);
+			const responseSerializer = {
+				rents: response,
+				total,
+				limit,
+				page,
+				pages,
+			};
+			return ctx.res
+				.status(httpConstants.code.OK)
+				.json(responseSerializer);
+		}
+		return ctx.res.status(httpConstants.code.NO_CONTENT);
 	},
 });

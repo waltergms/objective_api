@@ -1,0 +1,126 @@
+{
+	"rents": [
+		{
+			"reserveId": "6838b220-4537-45e8-a70d-3d59dc863e48",
+			"movieId": "0edef350-2caa-4ffd-b22d-62404bb321c1",
+			"status": "RETURNED",
+			"scheduleId": "cac89c25-bb77-4b2d-b355-24d590a609b5",
+			"customer": {
+				"name": "Walter",
+				"email": "walter.gms@gmail.com",
+				"phone": "+55(31)97522-8229"
+			},
+			"created_at": "2023-10-22T15:22:26.596Z",
+			"updated_at": "2023-10-22T15:22:52.526Z",
+			"is_deleted": false
+		},
+		{
+			"reserveId": "c78f8da7-137a-4169-8037-19b793985ed1",
+			"movieId": "0edef350-2caa-4ffd-b22d-62404bb321c1",
+			"status": "RETURNED",
+			"scheduleId": "a6ab65c6-2276-4035-82eb-36a20e068ad4",
+			"customer": {
+				"name": "Walter",
+				"email": "walter.gms@gmail.com",
+				"phone": "+55(31)97522-8229"
+			},
+			"created_at": "2023-10-22T14:23:50.914Z",
+			"updated_at": "2023-10-22T14:24:39.641Z",
+			"is_deleted": false
+		},
+		{
+			"reserveId": "1d0928c1-775f-4e9e-81bb-09c615343178",
+			"movieId": "0edef350-2caa-4ffd-b22d-62404bb321c1",
+			"status": "LEASED",
+			"scheduleId": "d73f1412-05c2-466b-b3e1-17f5edc6a38e",
+			"customer": {
+				"name": "Walter",
+				"email": "walter.gms@gmail.com",
+				"phone": "+55(31)97522-8229"
+			},
+			"created_at": "2023-10-22T14:20:13.875Z",
+			"updated_at": "2023-10-22T14:20:24.944Z",
+			"is_deleted": false
+		},
+		{
+			"reserveId": "c34e51f7-fc2c-455d-9de7-42d432c2b0fa",
+			"movieId": "0edef350-2caa-4ffd-b22d-62404bb321c1",
+			"status": "LEASED",
+			"scheduleId": "8dd1c8db-0fe5-4218-8667-ef42e1dad235",
+			"customer": {
+				"name": "Walter",
+				"email": "walter.gms@gmail.com",
+				"phone": "+55(31)97522-8229"
+			},
+			"created_at": "2023-10-22T14:19:13.427Z",
+			"updated_at": "2023-10-22T14:19:23.918Z",
+			"is_deleted": false
+		},
+		{
+			"reserveId": "cbb762f0-3196-4ab8-bed3-3f544f78a910",
+			"movieId": "0edef350-2caa-4ffd-b22d-62404bb321c1",
+			"status": "LEASED",
+			"scheduleId": "e56e4181-cb42-4d43-8b1c-e45ba919bddb",
+			"customer": {
+				"name": "Walter",
+				"email": "walter.gms@gmail.com",
+				"phone": "+55(31)97522-8229"
+			},
+			"created_at": "2023-10-22T14:16:57.442Z",
+			"updated_at": "2023-10-22T14:17:10.982Z",
+			"is_deleted": false
+		},
+		{
+			"reserveId": "67209d9f-7142-4754-af20-cfc24a32aa20",
+			"movieId": "0edef350-2caa-4ffd-b22d-62404bb321c1",
+			"status": "LEASED",
+			"scheduleId": "5d6fdfeb-b15e-4305-8fbd-73e559cb11bd",
+			"customer": {
+				"name": "Walter",
+				"email": "walter.gms@gmail.com",
+				"phone": "+55(31)97522-8229"
+			},
+			"created_at": "2023-10-22T14:02:09.223Z",
+			"updated_at": "2023-10-22T14:02:44.687Z",
+			"is_deleted": false
+		},
+		{
+			"reserveId": "d7e83d6c-6dbb-4408-a551-1f8ce4b40640",
+			"movieId": "0edef350-2caa-4ffd-b22d-62404bb321c1",
+			"status": "WAITING",
+			"created_at": "2023-10-22T14:01:45.411Z",
+			"updated_at": "2023-10-22T14:01:45.411Z",
+			"is_deleted": false
+		},
+		{
+			"reserveId": "fb04e242-3fc0-4fd9-b6ca-cda47f925680",
+			"movieId": "0edef350-2caa-4ffd-b22d-62404bb321c1",
+			"status": "LEASED",
+			"customer": {
+				"name": "Walter",
+				"email": "walter.gms@gmail.com",
+				"phone": "+55(31)97522-8229"
+			},
+			"created_at": "2023-10-22T14:00:10.939Z",
+			"updated_at": "2023-10-22T14:01:02.720Z",
+			"is_deleted": false
+		},
+		{
+			"reserveId": "b4db5d15-62fc-4b3d-aa06-d5fcb317e6f1",
+			"movieId": "fdbf93db-e2e2-4cbf-8073-c964e5b90b1b",
+			"status": "LEASED",
+			"customer": {
+				"name": "Walter",
+				"email": "walter.gms@gmail.com",
+				"phone": "+55(31)97522-8229"
+			},
+			"created_at": "2023-10-22T13:58:20.975Z",
+			"updated_at": "2023-10-22T13:59:21.297Z",
+			"is_deleted": false
+		}
+	],
+	"total": 9,
+	"limit": 100,
+	"page": 1,
+	"pages": 1
+}

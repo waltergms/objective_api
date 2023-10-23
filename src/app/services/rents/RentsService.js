@@ -16,8 +16,7 @@ module.exports = ({
 				caller: "RentService.createReservation",
 			});
 
-			const checkReserveHour = new Date();
-			checkReserveHour.setHours(checkReserveHour.getHours() - 3);
+			const checkReserveHour = apiHelper.getReservedHourLimit();
 
 			const movie = await moviesRepository.getAll({
 				query: {
@@ -64,8 +63,7 @@ module.exports = ({
 				caller: "RentService.createRent",
 			});
 
-			const checkReserveHour = new Date();
-			checkReserveHour.setHours(checkReserveHour.getHours() - 3);
+			const checkReserveHour = apiHelper.getReservedHourLimit();
 
 			const query = {
 				reserveId,
@@ -128,6 +126,26 @@ module.exports = ({
 				level: "error",
 				message: error.message,
 				caller: "RentService.updateRentToReturned",
+			});
+			return error.message;
+		}
+	},
+
+	getAll: async (args) => {
+		try {
+			logger.log({
+				level: "info",
+				message: "Rents getAll",
+				caller: "RentService.getAll",
+			});
+
+			const queryPayload = apiHelper.mapperQueryParams(args);
+			return await rentsRepository.getAll(queryPayload);
+		} catch (error) {
+			logger.log({
+				level: "error",
+				message: error.message,
+				caller: "RentsService.getAll",
 			});
 			return error.message;
 		}

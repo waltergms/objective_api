@@ -38,6 +38,7 @@ module.exports = ({ rentsController, rentsSchema, httpConstants }) => {
 					schema: rentsSchema.responses["400_404"],
 				},
 			},
+			tags: ["Rents"],
 		},
 		{
 			method: "patch",
@@ -57,6 +58,25 @@ module.exports = ({ rentsController, rentsSchema, httpConstants }) => {
 					schema: rentsSchema.responses["400_404"],
 				},
 			},
+			tags: ["Rents"],
+		},
+		{
+			method: "get",
+			path: "/rents",
+			validation: {},
+			handler: rentsController.findRent,
+			description: "Endpoint used to list all rents.",
+			responses: {
+				[httpConstants.code.CREATED]: {
+					description: "Successful operation",
+					schema: rentsSchema.responses["200_201_SINGLE"],
+				},
+				[httpConstants.code.BAD_REQUEST]: {
+					description: "Failed validation",
+					schema: rentsSchema.responses["400_404"],
+				},
+			},
+			tags: ["Rents"],
 		},
 	];
 };

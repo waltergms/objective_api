@@ -1,0 +1,9 @@
+{
+	"reserveId": "95367169-1322-4b93-8a48-64f5e05d93c4",
+	"movieId": "0edef350-2caa-4ffd-b22d-62404bb321c1",
+	"status": "WAITING",
+	"customer": {},
+	"created_at": "2023-10-22T18:20:50.252Z",
+	"updated_at": "2023-10-22T18:20:50.252Z",
+	"is_deleted": false
+}

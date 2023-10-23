@@ -1,0 +1,14 @@
+{
+	"reserveId": "6838b220-4537-45e8-a70d-3d59dc863e48",
+	"movieId": "0edef350-2caa-4ffd-b22d-62404bb321c1",
+	"status": "LEASED",
+	"scheduleId": "cac89c25-bb77-4b2d-b355-24d590a609b5",
+	"customer": {
+		"name": "Walter",
+		"email": "walter.gms@gmail.com",
+		"phone": "+55(31)97522-8229"
+	},
+	"created_at": "2023-10-22T15:22:26.596Z",
+	"updated_at": "2023-10-22T15:22:38.312Z",
+	"is_deleted": false
+}
